@@ -1,0 +1,196 @@
+/* Base */
+
+.center-with-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* End Of The Base */
+
+:root {
+    --operation-color: #0980f1;
+}
+
+.calculator {
+    margin: 20px auto 0;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+}
+
+.calculator button.oper,
+.calculator div.oper {
+    font-size: 32px;
+}
+
+/* img */
+
+.parent img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    transition: 0.3s;
+}
+
+.parent img:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+/* All Buttons */
+
+.calculator button {
+    background-color: #f0f0f0;
+    width: calc(25% - 14px);
+    height: 50px;
+    font-size: 28px;
+    border-radius: 15px;
+    outline: none;
+    border: none;
+}
+
+button {
+    transition: 0.2s;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+/* Operations Buttons */
+
+.oper {
+    color: var(--operation-color);
+}
+
+/* Result => = */
+
+.calculator button.result {
+    width: calc(50% - 14px);
+    background-color: #03A9F4;
+    font-size: 34px;
+    color: white;
+}
+
+/* Minus => - */
+
+.calculator button.minus {
+    font-size: 44px;
+}
+
+/* Dot => . */
+
+.calculator button.dot {
+    font-size: 35px;
+}
+
+/* Delete Button */
+
+button.delete .up {
+    width: 48px;
+    height: 24px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+button.delete .squar {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: 2.6px solid;
+    border-color: var(--operation-color) var(--operation-color) var(--operation-color) transparent;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+button.delete .squar span {
+    position: absolute;
+    left: calc(50% - 9.5px);
+    top: calc(50% - 1px);
+    transform: translate(-5%, -50%);
+    font-size: 30px;
+}
+
+button.delete .inside {
+    width: 20px;
+    height: 20px;
+    border: 2.6px solid;
+    border-color: transparent var(--operation-color) var(--operation-color) transparent;
+    transform: rotate(135deg);
+    position: relative;
+    left: 13px;
+}
+
+/* Screen */
+
+.parent .screen {
+    /* background-color: gray; */
+    margin: 70px auto 12px;
+    width: 80%;
+    height: 275px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: auto;
+}
+
+.parent .screen .text {
+    word-break: break-all;
+    text-align: right;
+    transition: font-size 0.3s, opacity 0.3s, padding 0.3s;
+}
+
+/* small-screen */
+
+.parent .small-screen {
+    /* background-color: green; */
+    width: 80%;
+    margin: auto;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.parent .small-screen .text {
+    opacity: .5;
+    padding-right: 4px;
+    text-align: right;
+    transition: font-size 0.3s, opacity 0.3s, padding 0.3s;
+}
+
+/* Media */
+
+@media (min-width: 767px) {
+
+    .calculator {
+        width: 50vw;
+    }
+
+    .parent .screen {
+        width: 40vw;
+    }
+
+    .parent .small-screen {
+        width: 40vw;
+    }
+}
